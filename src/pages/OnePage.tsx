@@ -90,45 +90,43 @@ function Dock() {
         const expanded = isActive || isHover;
         const Icon = NAV_ICONS[s.id] ?? HomeIcon;
         return (
-          <motion.button
+          <button
             key={s.id}
             onClick={() => go(s.id)}
             onMouseEnter={() => setHovered(s.id)}
             onMouseLeave={() => setHovered(null)}
-            layout
-            transition={{ type: "spring", stiffness: 380, damping: 28 }}
             className={cn(
-              "relative flex items-center gap-2 h-11 rounded-xl overflow-hidden transition-colors",
-              expanded ? "px-3" : "px-2.5",
+              "relative flex items-center justify-center size-11 rounded-xl transition-colors",
               isActive
                 ? "bg-primary text-primary-foreground shadow-lg shadow-primary/30"
                 : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
             )}
           >
             <motion.span
-              animate={{ scale: isActive ? 1.18 : isHover ? 1.08 : 1 }}
-              transition={{ type: "spring", stiffness: 400, damping: 20 }}
-              className="grid place-items-center shrink-0"
+              animate={{ scale: isActive ? 1.25 : isHover ? 1.18 : 1, y: isActive || isHover ? -2 : 0 }}
+              transition={{ type: "spring", stiffness: 400, damping: 18 }}
+              className="grid place-items-center"
             >
               <Icon className="size-[18px]" />
             </motion.span>
-            <AnimatePresence initial={false}>
+            <AnimatePresence>
               {expanded && (
                 <motion.span
                   key="label"
-                  initial={{ width: 0, opacity: 0 }}
-                  animate={{ width: "auto", opacity: 1 }}
-                  exit={{ width: 0, opacity: 0 }}
-                  transition={{ duration: 0.22, ease: "easeOut" }}
-                  className="text-xs font-medium whitespace-nowrap overflow-hidden"
+                  initial={{ opacity: 0, x: -6 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -6 }}
+                  transition={{ duration: 0.18, ease: "easeOut" }}
+                  className="pointer-events-none absolute left-full ml-3 px-2.5 py-1 rounded-md bg-card border border-border text-xs font-medium text-foreground whitespace-nowrap shadow-lg"
                 >
                   {s.label}
                 </motion.span>
               )}
             </AnimatePresence>
-          </motion.button>
+          </button>
         );
       })}
+
       <div className="h-px w-full bg-border my-1" />
       <div className="self-center"><ThemeToggle /></div>
     </motion.div>
