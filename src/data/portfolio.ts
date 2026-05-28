@@ -12,6 +12,8 @@ import { TbBrandPython } from "react-icons/tb";
 import type { IconType } from "react-icons";
 
 // Projects Screenshots —————————————————————————————————————————————————
+const screenshot1 = "screenshots/sbdots.png";
+const screenshot2 = "screenshots/treeva.png";
 const screenshot3 = "screenshots/serp.png";
 const screenshot4 = "screenshots/libmngr.png";
 
@@ -21,12 +23,21 @@ const ProfilePic = "/me.png";
 // About ----------------------------------------------------------------
 export const About = {
   name: "Saifullah Balghari",
+  email: "sbalghari@proton.me",
   titles: {
-    1: "a Junior Systems Engineer",
-    2: "a University Student",
-    3: "an Aspiring AI/ML Engineer",
-    4: "an Open Source Contributor"
+    1: "Junior Systems Engineer",
+    2: "University Student",
+    3: "Aspiring AI/ML Engineer",
+    4: "Open Source Enthusiast"
   } as Record<number, string>,
+  about_texts: [
+    "Based in Skardu, GB, Pakistan.",
+    "Currently studying Computer Science at Army Public School & College System, Skardu.",
+    "Self-taught across multiple languages and frameworks through online resources.",
+    "Python is my main language — love its simplicity and rich ecosystem.",
+    "Also comfortable with C++, JavaScript, and SQL.",
+    "Intermediate grasp of core CS concepts: DSA, Databases, OS, and Version Control.",
+  ],
   picture: ProfilePic,
 };
 
@@ -42,16 +53,16 @@ export const socialLinks: { icon: IconType; link: string; label: string }[] = [
 export const educationData = [
   {
     institution: "University of Baltistan, Skardu",
-    name: "Bachelors in AI",
-    year: "March, 2026 - Expected Graduation 2030",
+    name: "BS Artificial Intelligence",
+    year: "2026 - Expected 2030",
     description:
-      "I am doing bachelors in artificial inteligence (AI) from the University of Baltistan, Skardu. currently in 1st semsitor",
+      "Currently pursuing a bachelors degree in artificial inteligence (AI) from the University of Baltistan, Skardu.",
   },
   {
     institution: "APSACS, Skardu",
-    name: "Fsc",
-    year: "2020-2024",
-    description: "I did my higher scondary schooling in CS from Army Public School Skardu. Got around 80 %age in CS subjects.",
+    name: "FSc Computer Science",
+    year: "2020 - 2024",
+    description: "Completed higher secondary education in Computer Science with strong interest in programming.",
   },
 ];
 
@@ -59,40 +70,59 @@ export const educationData = [
 export const experienceData = [
   {
     company: "Open Source",
-    year: "2024-Now",
-    position: "Creator/Countributor",
+    year: "2024 - Now",
+    position: "Contributor & Builder",
     description:
-      "Active on github, building collaburative projects and contributing to open source projects.",
+      "Building personal projects, experimenting with ideas, and contributing to open source whenever something breaks badly enough to annoy me and its simple enough for me.",
   },
   {
     company: "Self Employed",
-    year: "2022-Now",
-    position: "Project Development",
+    year: "2022 - Now",
+    position: "Developer",
     description:
-      "I am building various projects using Python, C++, ReactJS, TailwindCSS and others.",
+      "Working on projects using Python, C++, React, TailwindCSS, and Linux-based tooling. Mostly focused on system tweaking, automation, and developer tools.",
   },
 ];
 
 // Projects -------------------------------------------------------------
 export const projectsData = [
   {
+    Name: "SBDots",
+    Description:
+      "A Hyprland setup focused on automation and a clean Linux desktop experience. Includes dotfiles management, desktop components, and system tooling built mainly with Python.",
+    Technologies_used: "Python, Bash, Hyprland, Linux",
+    screenshot: screenshot1,
+    Link: "https://github.com/sbalghari/sbdots",
+    filter: "Linux",
+  },
+  {
+    Name: "Treeva",
+    Description:
+      "A CLI tool for analyzing codebases and directories with support for filesystem scanning, metadata extraction, language detection, and structured output formats.",
+    Technologies_used: "Python, Tree-sitter, CLI, TUI",
+    screenshot: screenshot2,
+    Link: "https://github.com/sbalghari/treeva",
+    filter: "Developer Tools",
+  },
+  {
     Name: "SERP Manager",
     Description:
-      "SERP Manager is a GUI application for managing results, papers, datesheets of different examinations with role-based access, database integeration and etc.",
-    Technologies_used: "Python, SQLite, Customtkinter",
+      "A desktop application for managing exam results, papers, datesheets, and records with role-based access and database integration.",
+    Technologies_used: "Python, SQLite, Customtkinter, GUI",
     screenshot: screenshot3,
     Link: "https://github.com/sbalghari/SERP-Manager",
-    filter: "Desktop",
+    filter: "Others",
   },
   {
     Name: "Library Manager",
     Description:
-      "A simple CLI application made with C++ which tries to do some basic library management operations like add/get books, update books, etc.",
-    Technologies_used: "C++",
+      "A simple CLI-based library management system built in C++ with features like adding, updating, and managing book records.",
+    Technologies_used: "C++, CLI",
     screenshot: screenshot4,
     Link: "https://github.com/sbalghari/LibraryManager",
     filter: "Others",
   },
+  
 ];
 
 // Skills ---------------------------------------------------------------

@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  ArrowUpRight, MapPin, Mail, Github, ExternalLink,
+  ArrowUpRight, MapPin, Mail, ExternalLink,
   Home as HomeIcon, User, GraduationCap, Briefcase, FolderGit2, Wrench, MessageSquare,
 } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import Particles from "@/components/Particles";
 import { cn } from "@/lib/utils";
@@ -17,9 +18,9 @@ import {
   navSections,
 } from "@/data/portfolio";
 
-const EMAIL = "sbalghari@proton.me";
+const EMAIL = About.email
 
-/* Catppuccin accent palette for tags — darker text in light (Latte), softer in dark (Mocha) */
+/* Catppuccin accent palette for tags*/
 const TAG_COLORS = [
   // mauve
   "bg-[hsl(266_85%_58%/0.18)] text-[hsl(266_85%_28%)] border-[hsl(266_85%_42%/0.65)] dark:bg-[hsl(267_84%_81%/0.15)] dark:text-[hsl(267_84%_81%)] dark:border-[hsl(267_84%_81%/0.4)]",
@@ -270,14 +271,7 @@ function AboutSection() {
       <div className="grid md:grid-cols-3 gap-6">
         <div className="md:col-span-2 p-6 rounded-2xl border border-border bg-card">
           <ul className="space-y-3 text-card-foreground">
-            {[
-              "Based in Skardu, GB, Pakistan.",
-              "Currently studying Computer Science at Army Public School & College System, Skardu.",
-              "Self-taught across multiple languages and frameworks through online resources.",
-              "Python is my main language — love its simplicity and rich ecosystem.",
-              "Also comfortable with C++, JavaScript, and SQL.",
-              "Intermediate grasp of core CS concepts: DSA, Databases, OS, and Version Control.",
-            ].map((b) => (
+            {About.about_texts.map((b) => (
               <li key={b} className="flex items-start gap-3 leading-relaxed">
                 <span className="mt-2 size-1.5 rounded-full bg-primary shrink-0" />
                 <span>{b}</span>
@@ -385,7 +379,7 @@ function CardList({
 }
 
 /* ----------------------------- Projects ----------------------------- */
-const FILTERS = ["All", "Web", "Desktop", "Others"];
+const FILTERS = ["All", "Developer Tools", "Linux", "Others"];
 function Projects() {
   const [filter, setFilter] = useState("All");
   const shown = filter === "All" ? projectsData : projectsData.filter((p) => p.filter === filter);
@@ -436,7 +430,7 @@ function Projects() {
                   aria-label={`View ${p.Name} source code`}
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary text-primary-foreground text-xs font-medium shadow-md shadow-primary/30 hover:opacity-90 hover:-translate-y-0.5 transition-all"
                 >
-                  <Github className="size-3.5" />
+                  <FaGithub className="size-3.5" />
                   Source
                   <ArrowUpRight className="size-3.5" />
                 </a>
