@@ -11,28 +11,22 @@ import { VscVscode } from "react-icons/vsc";
 import { TbBrandPython } from "react-icons/tb";
 import type { IconType } from "react-icons";
 
-// Projects Screenshots — these paths reference assets that don't ship with
-// this remix. Replace the values below by dropping real files into
-// src/assets/screenshots/ and re-importing them, e.g.:
-//   import screenshot1 from "@/assets/screenshots/serp.png";
-const screenshot1 = "/placeholder.svg";
-const screenshot2 = "/placeholder.svg";
-const screenshot3 = "/placeholder.svg";
-const screenshot4 = "/placeholder.svg";
+// Projects Screenshots —————————————————————————————————————————————————
+const screenshot3 = "screenshots/serp.png";
+const screenshot4 = "screenshots/libmngr.png";
 
-// Profile Picture — placeholder until a real photo is provided.
-const ProfilePic = "/placeholder.svg";
+// Profile Picture
+const ProfilePic = "/me.png";
 
 // About ----------------------------------------------------------------
 export const About = {
   name: "Saifullah Balghari",
   titles: {
-    1: "a Full-Stack Developer",
-    2: "a College Student",
-    3: "an Aspiring ML Engineer",
+    1: "a Junior Systems Engineer",
+    2: "a University Student",
+    3: "an Aspiring AI/ML Engineer",
+    4: "an Open Source Contributor"
   } as Record<number, string>,
-  description:
-    "Hi, I am Saifullah Balghari based in Skardu, GB, Pakistan. I am currently studying Computer Science from Army Public School and College System, Skardu. I've learned various programming languages online. I have a strong foundation in Python and its simplicity and extensive libraries make it my favorite. I also know C++, JavaScript, SQL, etc., and have intermediate knowledge in CS concepts like DSA, DB, OS, and VC.",
   picture: ProfilePic,
 };
 
@@ -47,80 +41,61 @@ export const socialLinks: { icon: IconType; link: string; label: string }[] = [
 // Education ------------------------------------------------------------
 export const educationData = [
   {
-    institution: "APSACS, Skardu",
-    name: "SSC - High School",
-    year: "2020-2022",
+    institution: "University of Baltistan, Skardu",
+    name: "Bachelors in AI",
+    year: "March, 2026 - Expected Graduation 2030",
     description:
-      "I got the secondary school certificate in June 2022 with a grade of A and 776 out of 1100 marks.",
+      "I am doing bachelors in artificial inteligence (AI) from the University of Baltistan, Skardu. currently in 1st semsitor",
   },
   {
     institution: "APSACS, Skardu",
-    name: "HSSC - College",
-    year: "2022-Now",
-    description: "I am pursuing the higher secondary school certificate.",
-  },
-  {
-    institution: "Self Taught",
-    name: "Online Learning",
-    year: "2021-Now",
-    description:
-      "I am currently learning Python, its AI-related libraries, and web development from online sources.",
+    name: "Fsc",
+    year: "2020-2024",
+    description: "I did my higher scondary schooling in CS from Army Public School Skardu. Got around 80 %age in CS subjects.",
   },
 ];
 
 // Experience -----------------------------------------------------------
 export const experienceData = [
   {
-    company: "Project Development",
-    year: "2022-Now",
-    position: "Self Employed",
+    company: "Open Source",
+    year: "2024-Now",
+    position: "Creator/Countributor",
     description:
-      "I am building various GUI, CLI and Web applications using Python, C++, ReactJS, TailwindCSS and others.",
+      "Active on github, building collaburative projects and contributing to open source projects.",
+  },
+  {
+    company: "Self Employed",
+    year: "2022-Now",
+    position: "Project Development",
+    description:
+      "I am building various projects using Python, C++, ReactJS, TailwindCSS and others.",
   },
 ];
 
 // Projects -------------------------------------------------------------
 export const projectsData = [
   {
-    Name: "SERP-Manager",
+    Name: "SERP Manager",
     Description:
-      "Student Examination Results and Paper Manager is a GUI application for organising results and papers.",
+      "SERP Manager is a GUI application for managing results, papers, datesheets of different examinations with role-based access, database integeration and etc.",
     Technologies_used: "Python, SQLite, Customtkinter",
-    screenshot: screenshot1,
-    Link: "https://github.com/Saifullah-Balghari/SERP-Manager",
-    filter: "Desktop",
-  },
-  {
-    Name: "Calculator",
-    Description:
-      "A simple GUI application that can perform various arithmetic operations.",
-    Technologies_used: "Python, Tkinter",
-    screenshot: screenshot2,
-    Link: "https://github.com/Saifullah-Balghari/Arithmetic-Calculater",
+    screenshot: screenshot3,
+    Link: "https://github.com/sbalghari/SERP-Manager",
     filter: "Desktop",
   },
   {
     Name: "Library Manager",
     Description:
-      "A simple CLI application made with C++ capable of performing various library operations.",
+      "A simple CLI application made with C++ which tries to do some basic library management operations like add/get books, update books, etc.",
     Technologies_used: "C++",
-    screenshot: screenshot3,
-    Link: "https://github.com/Saifullah-Balghari/LibraryManager",
-    filter: "Others",
-  },
-  {
-    Name: "Portfolio Website",
-    Description: "A personal portfolio website built with React and TailwindCSS.",
-    Technologies_used: "ReactJS, TailwindCSS, JavaScript",
     screenshot: screenshot4,
-    Link: "https://github.com/Saifullah-Balghari/Portfolio",
-    filter: "Web",
+    Link: "https://github.com/sbalghari/LibraryManager",
+    filter: "Others",
   },
 ];
 
 // Skills ---------------------------------------------------------------
-// Using react-icons in place of the original PNG icon paths because the
-// asset files (src/assets/icons/*.png) are not present in this project.
 export type Skill = { label: string; icon: IconType };
 
 export const skillsData: Record<string, Skill[]> = {
