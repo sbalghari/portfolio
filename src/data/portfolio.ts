@@ -31,12 +31,12 @@ export const About = {
     4: "Open Source Enthusiast"
   } as Record<number, string>,
   about_texts: [
-    "Based in Skardu, GB, Pakistan.",
-    "Currently studying Computer Science at Army Public School & College System, Skardu.",
-    "Self-taught across multiple languages and frameworks through online resources.",
-    "Python is my main language — love its simplicity and rich ecosystem.",
-    "Also comfortable with C++, JavaScript, and SQL.",
-    "Intermediate grasp of core CS concepts: DSA, Databases, OS, and Version Control.",
+    "BSAI student at University of Baltistan, Skardu",
+    "Self-taught programmer through online resources and projects.",
+    "Strong interest in Linux, system internals, and desktop customization.",
+    "Proficient in Python; Confortable with C++, JS, and SQL.",
+    "Building projects like SBDots (System enviroment setup) and Treeva (codebase analysis tool).",
+    "Comfortable with DSA, OS, databases, and version control fundamentals."
   ],
   picture: ProfilePic,
 };
