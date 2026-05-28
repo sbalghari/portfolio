@@ -62,6 +62,11 @@ function Dock() {
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY + 140;
+      // If user is near the bottom of the page, force-select the last section
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 80) {
+        setActive(navSections[navSections.length - 1].id);
+        return;
+      }
       for (const s of navSections) {
         const el = document.getElementById(s.id);
         if (el && el.offsetTop <= y && el.offsetTop + el.offsetHeight > y) {
