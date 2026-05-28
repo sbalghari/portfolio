@@ -22,21 +22,21 @@ const EMAIL = "sbalghari@proton.me";
 /* Catppuccin accent palette for tags — darker text in light (Latte), softer in dark (Mocha) */
 const TAG_COLORS = [
   // mauve
-  "bg-[hsl(266_85%_58%/0.12)] text-[hsl(266_85%_42%)] border-[hsl(266_85%_58%/0.45)] dark:bg-[hsl(267_84%_81%/0.15)] dark:text-[hsl(267_84%_81%)] dark:border-[hsl(267_84%_81%/0.4)]",
+  "bg-[hsl(266_85%_58%/0.18)] text-[hsl(266_85%_28%)] border-[hsl(266_85%_42%/0.65)] dark:bg-[hsl(267_84%_81%/0.15)] dark:text-[hsl(267_84%_81%)] dark:border-[hsl(267_84%_81%/0.4)]",
   // sky / sapphire
-  "bg-[hsl(197_97%_46%/0.12)] text-[hsl(197_97%_32%)] border-[hsl(197_97%_46%/0.45)] dark:bg-[hsl(189_71%_73%/0.15)] dark:text-[hsl(189_71%_73%)] dark:border-[hsl(189_71%_73%/0.4)]",
+  "bg-[hsl(197_97%_46%/0.18)] text-[hsl(197_97%_20%)] border-[hsl(197_97%_32%/0.65)] dark:bg-[hsl(189_71%_73%/0.15)] dark:text-[hsl(189_71%_73%)] dark:border-[hsl(189_71%_73%/0.4)]",
   // green
-  "bg-[hsl(109_58%_40%/0.12)] text-[hsl(109_58%_28%)] border-[hsl(109_58%_40%/0.45)] dark:bg-[hsl(115_54%_76%/0.15)] dark:text-[hsl(115_54%_76%)] dark:border-[hsl(115_54%_76%/0.4)]",
+  "bg-[hsl(109_58%_40%/0.18)] text-[hsl(109_58%_18%)] border-[hsl(109_58%_28%/0.65)] dark:bg-[hsl(115_54%_76%/0.15)] dark:text-[hsl(115_54%_76%)] dark:border-[hsl(115_54%_76%/0.4)]",
   // pink
-  "bg-[hsl(316_72%_50%/0.12)] text-[hsl(316_72%_38%)] border-[hsl(316_72%_50%/0.45)] dark:bg-[hsl(316_72%_86%/0.15)] dark:text-[hsl(316_72%_86%)] dark:border-[hsl(316_72%_86%/0.4)]",
+  "bg-[hsl(316_72%_50%/0.18)] text-[hsl(316_72%_26%)] border-[hsl(316_72%_38%/0.65)] dark:bg-[hsl(316_72%_86%/0.15)] dark:text-[hsl(316_72%_86%)] dark:border-[hsl(316_72%_86%/0.4)]",
   // yellow
-  "bg-[hsl(35_77%_45%/0.14)] text-[hsl(35_77%_32%)] border-[hsl(35_77%_45%/0.45)] dark:bg-[hsl(41_86%_83%/0.15)] dark:text-[hsl(41_86%_83%)] dark:border-[hsl(41_86%_83%/0.4)]",
+  "bg-[hsl(35_77%_45%/0.2)] text-[hsl(35_90%_22%)] border-[hsl(35_77%_32%/0.65)] dark:bg-[hsl(41_86%_83%/0.15)] dark:text-[hsl(41_86%_83%)] dark:border-[hsl(41_86%_83%/0.4)]",
   // peach
-  "bg-[hsl(22_99%_52%/0.12)] text-[hsl(22_99%_38%)] border-[hsl(22_99%_52%/0.45)] dark:bg-[hsl(23_92%_75%/0.15)] dark:text-[hsl(23_92%_75%)] dark:border-[hsl(23_92%_75%/0.4)]",
+  "bg-[hsl(22_99%_52%/0.18)] text-[hsl(22_99%_26%)] border-[hsl(22_99%_38%/0.65)] dark:bg-[hsl(23_92%_75%/0.15)] dark:text-[hsl(23_92%_75%)] dark:border-[hsl(23_92%_75%/0.4)]",
   // teal
-  "bg-[hsl(183_74%_35%/0.12)] text-[hsl(183_74%_25%)] border-[hsl(183_74%_35%/0.45)] dark:bg-[hsl(170_57%_73%/0.15)] dark:text-[hsl(170_57%_73%)] dark:border-[hsl(170_57%_73%/0.4)]",
+  "bg-[hsl(183_74%_35%/0.18)] text-[hsl(183_74%_16%)] border-[hsl(183_74%_25%/0.65)] dark:bg-[hsl(170_57%_73%/0.15)] dark:text-[hsl(170_57%_73%)] dark:border-[hsl(170_57%_73%/0.4)]",
   // blue
-  "bg-[hsl(220_91%_54%/0.12)] text-[hsl(220_91%_40%)] border-[hsl(220_91%_54%/0.45)] dark:bg-[hsl(217_92%_76%/0.15)] dark:text-[hsl(217_92%_76%)] dark:border-[hsl(217_92%_76%/0.4)]",
+  "bg-[hsl(220_91%_54%/0.18)] text-[hsl(220_91%_28%)] border-[hsl(220_91%_40%/0.65)] dark:bg-[hsl(217_92%_76%/0.15)] dark:text-[hsl(217_92%_76%)] dark:border-[hsl(217_92%_76%/0.4)]",
 ];
 const hashIdx = (s: string) => {
   let h = 0;
@@ -62,6 +62,11 @@ function Dock() {
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY + 140;
+      // If user is near the bottom of the page, force-select the last section
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 80) {
+        setActive(navSections[navSections.length - 1].id);
+        return;
+      }
       for (const s of navSections) {
         const el = document.getElementById(s.id);
         if (el && el.offsetTop <= y && el.offsetTop + el.offsetHeight > y) {
@@ -117,8 +122,13 @@ function Dock() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -6 }}
                   transition={{ duration: 0.18, ease: "easeOut" }}
-                  className="pointer-events-none absolute left-full ml-3 px-2.5 py-1 rounded-md bg-card border border-border text-xs font-medium text-foreground whitespace-nowrap shadow-lg"
+                  className="pointer-events-none absolute left-full ml-2 px-2.5 py-1 rounded-md bg-card border border-border text-xs font-medium text-foreground whitespace-nowrap shadow-lg"
                 >
+                  {/* pointy arrow connecting to icon */}
+                  <span
+                    aria-hidden
+                    className="absolute right-full top-1/2 -translate-y-1/2 size-2 rotate-45 bg-card border-l border-b border-border -mr-1"
+                  />
                   {s.label}
                 </motion.span>
               )}
@@ -259,7 +269,21 @@ function AboutSection() {
     <Section id="about" eyebrow="// about me" title="A bit about who I am">
       <div className="grid md:grid-cols-3 gap-6">
         <div className="md:col-span-2 p-6 rounded-2xl border border-border bg-card">
-          <p className="leading-relaxed text-card-foreground">{About.description}</p>
+          <ul className="space-y-3 text-card-foreground">
+            {[
+              "Based in Skardu, GB, Pakistan.",
+              "Currently studying Computer Science at Army Public School & College System, Skardu.",
+              "Self-taught across multiple languages and frameworks through online resources.",
+              "Python is my main language — love its simplicity and rich ecosystem.",
+              "Also comfortable with C++, JavaScript, and SQL.",
+              "Intermediate grasp of core CS concepts: DSA, Databases, OS, and Version Control.",
+            ].map((b) => (
+              <li key={b} className="flex items-start gap-3 leading-relaxed">
+                <span className="mt-2 size-1.5 rounded-full bg-primary shrink-0" />
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
         </div>
         <div className="p-6 rounded-2xl border border-border bg-card space-y-3">
           <div className="flex items-center gap-3 text-sm">
@@ -526,7 +550,7 @@ export default function OnePage() {
         <Hero />
         <AboutSection />
         <Section id="education" eyebrow="// education" title="Where I'm learning">
-          <Timeline
+          <CardList
             items={educationData.map((e) => ({
               title: e.name,
               subtitle: e.institution,
