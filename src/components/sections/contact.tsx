@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { About, socialLinks } from "@/data/portfolio";
 import { TAG_COLORS } from "@/lib/constants";
 import { hashIdx } from "@/lib/utils";
-import Section from "./shared/base";
+import Section from "../shared/base";
 
 function Contact() {
   return (

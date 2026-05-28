@@ -8,8 +8,6 @@ import {
   MessageSquare,
 } from "lucide-react";
 
-
-/* Catppuccin accent palette for tags*/
 export const TAG_COLORS = [
   // mauve
   "bg-[hsl(266_85%_58%/0.18)] text-[hsl(266_85%_28%)] border-[hsl(266_85%_42%/0.65)] dark:bg-[hsl(267_84%_81%/0.15)] dark:text-[hsl(267_84%_81%)] dark:border-[hsl(267_84%_81%/0.4)]",

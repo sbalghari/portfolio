@@ -2,7 +2,7 @@
 import { MapPin, Mail } from "lucide-react";
 import { About, socialLinks } from "@/data/portfolio";
 
-import Section from "./shared/base";
+import Section from "../shared/base";
 
 function AboutSection() {
   return (

@@ -2,7 +2,7 @@
 import { cn } from "@/lib/utils";
 import { skillsData } from "@/data/portfolio";
 
-import Section from "./shared/base";
+import Section from "../shared/base";
 import { TAG_COLORS, CAT_ACCENTS } from "@/lib/constants";
 import { hashIdx } from "@/lib/utils";
 

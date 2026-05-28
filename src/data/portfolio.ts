@@ -1,11 +1,29 @@
 import {
-  FaGithub, FaInstagram, FaFacebook, FaLinkedin,
-  FaHtml5, FaCss3Alt, FaJs, FaReact, FaBootstrap, FaPython, FaNodeJs,
-  FaGitAlt, FaLinux,
+  FaGithub,
+  FaInstagram,
+  FaFacebook,
+  FaLinkedin,
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaReact,
+  FaBootstrap,
+  FaPython,
+  FaNodeJs,
+  FaGitAlt,
+  FaLinux,
 } from "react-icons/fa";
 import {
-  SiTailwindcss, SiCplusplus, SiC, SiMysql, SiMongodb, SiPandas,
-  SiNumpy, SiJupyter, SiGnubash, SiGithub,
+  SiTailwindcss,
+  SiCplusplus,
+  SiC,
+  SiMysql,
+  SiMongodb,
+  SiPandas,
+  SiNumpy,
+  SiJupyter,
+  SiGnubash,
+  SiGithub,
 } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 import { TbBrandPython } from "react-icons/tb";
@@ -28,25 +46,37 @@ export const About = {
     1: "Junior Systems Engineer",
     2: "University Student",
     3: "Aspiring AI/ML Engineer",
-    4: "Open Source Enthusiast"
+    4: "Open Source Enthusiast",
   } as Record<number, string>,
   about_texts: [
-    "BSAI student at University of Baltistan, Skardu",
+    "BSAI student at University of Baltistan, Skardu.",
     "Self-taught programmer through online resources and projects.",
     "Strong interest in Linux, system internals, and desktop customization.",
     "Proficient in Python; Confortable with C++, JS, and SQL.",
     "Building projects like SBDots (System enviroment setup) and Treeva (codebase analysis tool).",
-    "Comfortable with DSA, OS, databases, and version control fundamentals."
+    "Comfortable with DSA, OS, databases, and version control fundamentals.",
   ],
   picture: ProfilePic,
 };
 
 // Socials --------------------------------------------------------------
 export const socialLinks: { icon: IconType; link: string; label: string }[] = [
-  { icon: FaGithub,   link: "https://github.com/sbalghari",                          label: "GitHub" },
-  { icon: FaLinkedin, link: "https://www.linkedin.com/in/saifullah-balghari/",       label: "LinkedIn" },
-  { icon: FaInstagram,link: "https://www.instagram.com/saifullahbalghari/",          label: "Instagram" },
-  { icon: FaFacebook, link: "https://www.facebook.com/Saifullah.BlghaRi/",           label: "Facebook" },
+  { icon: FaGithub, link: "https://github.com/sbalghari", label: "GitHub" },
+  {
+    icon: FaLinkedin,
+    link: "https://www.linkedin.com/in/saifullah-balghari/",
+    label: "LinkedIn",
+  },
+  {
+    icon: FaInstagram,
+    link: "https://www.instagram.com/saifullahbalghari/",
+    label: "Instagram",
+  },
+  {
+    icon: FaFacebook,
+    link: "https://www.facebook.com/Saifullah.BlghaRi/",
+    label: "Facebook",
+  },
 ];
 
 // Education ------------------------------------------------------------
@@ -62,7 +92,8 @@ export const educationData = [
     institution: "APSACS, Skardu",
     name: "FSc Computer Science",
     year: "2020 - 2024",
-    description: "Completed higher secondary education in Computer Science with strong interest in programming.",
+    description:
+      "Completed higher secondary education in Computer Science with strong interest in programming.",
   },
 ];
 
@@ -122,7 +153,6 @@ export const projectsData = [
     Link: "https://github.com/sbalghari/LibraryManager",
     filter: "Others",
   },
-  
 ];
 
 // Skills ---------------------------------------------------------------
@@ -130,44 +160,44 @@ export type Skill = { label: string; icon: IconType };
 
 export const skillsData: Record<string, Skill[]> = {
   Frontend: [
-    { label: "HTML",         icon: FaHtml5 },
-    { label: "CSS",          icon: FaCss3Alt },
-    { label: "JavaScript",   icon: FaJs },
-    { label: "CustomTkinter",icon: TbBrandPython },
-    { label: "TailwindCSS",  icon: SiTailwindcss },
-    { label: "React JS",     icon: FaReact },
-    { label: "Bootstrap",    icon: FaBootstrap },
+    { label: "HTML", icon: FaHtml5 },
+    { label: "CSS", icon: FaCss3Alt },
+    { label: "JavaScript", icon: FaJs },
+    { label: "CustomTkinter", icon: TbBrandPython },
+    { label: "TailwindCSS", icon: SiTailwindcss },
+    { label: "React JS", icon: FaReact },
+    { label: "Bootstrap", icon: FaBootstrap },
   ],
   Backend: [
-    { label: "C-Language",   icon: SiC },
-    { label: "C++",          icon: SiCplusplus },
-    { label: "NodeJS",       icon: FaNodeJs },
-    { label: "MySQL",        icon: SiMysql },
-    { label: "MongoDB",      icon: SiMongodb },
+    { label: "C-Language", icon: SiC },
+    { label: "C++", icon: SiCplusplus },
+    { label: "NodeJS", icon: FaNodeJs },
+    { label: "MySQL", icon: SiMysql },
+    { label: "MongoDB", icon: SiMongodb },
   ],
   AI: [
-    { label: "Python",            icon: FaPython },
-    { label: "Pandas",            icon: SiPandas },
-    { label: "Numpy",             icon: SiNumpy },
-    { label: "Matplotlib",        icon: TbBrandPython },
-    { label: "Jupyter Notebook",  icon: SiJupyter },
+    { label: "Python", icon: FaPython },
+    { label: "Pandas", icon: SiPandas },
+    { label: "Numpy", icon: SiNumpy },
+    { label: "Matplotlib", icon: TbBrandPython },
+    { label: "Jupyter Notebook", icon: SiJupyter },
   ],
   Others: [
-    { label: "Git",     icon: FaGitAlt },
-    { label: "GitHub",  icon: SiGithub },
-    { label: "Linux",   icon: FaLinux },
-    { label: "Bash",    icon: SiGnubash },
+    { label: "Git", icon: FaGitAlt },
+    { label: "GitHub", icon: SiGithub },
+    { label: "Linux", icon: FaLinux },
+    { label: "Bash", icon: SiGnubash },
     { label: "VS Code", icon: VscVscode },
   ],
 };
 
 // Section nav -----------------------------------------------------------
 export const navSections = [
-  { id: "home",       label: "Home" },
-  { id: "about",      label: "About" },
-  { id: "education",  label: "Education" },
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "education", label: "Education" },
   { id: "experience", label: "Experience" },
-  { id: "projects",   label: "Projects" },
-  { id: "skills",     label: "Skills" },
-  { id: "contact",    label: "Contact" },
+  { id: "projects", label: "Projects" },
+  { id: "skills", label: "Skills" },
+  { id: "contact", label: "Contact" },
 ];

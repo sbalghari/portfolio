@@ -1,5 +1,5 @@
 import { Component, ErrorInfo, ReactNode } from 'react';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/shared/button';
 import { AlertCircle } from 'lucide-react';
 
 interface Props {

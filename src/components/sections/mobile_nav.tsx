@@ -1,6 +1,6 @@
 /* ------------------------- Mobile top nav (sm) ----------------------- */
 import { Home as HomeIcon } from "lucide-react";
-import { ThemeToggle } from "@/components/layout/ThemeToggle";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { navSections } from "@/data/portfolio";
 
 import { NAV_ICONS } from "@/lib/constants";

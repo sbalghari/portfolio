@@ -5,7 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { cn } from "@/lib/utils";
 import { projectsData } from "@/data/portfolio";
-import Section from "./shared/base";
+import Section from "../shared/base";
 import { TAG_COLORS } from "@/lib/constants";
 import { hashIdx } from "@/lib/utils";
 
