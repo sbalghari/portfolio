@@ -269,7 +269,21 @@ function AboutSection() {
     <Section id="about" eyebrow="// about me" title="A bit about who I am">
       <div className="grid md:grid-cols-3 gap-6">
         <div className="md:col-span-2 p-6 rounded-2xl border border-border bg-card">
-          <p className="leading-relaxed text-card-foreground">{About.description}</p>
+          <ul className="space-y-3 text-card-foreground">
+            {[
+              "Based in Skardu, GB, Pakistan.",
+              "Currently studying Computer Science at Army Public School & College System, Skardu.",
+              "Self-taught across multiple languages and frameworks through online resources.",
+              "Python is my main language — love its simplicity and rich ecosystem.",
+              "Also comfortable with C++, JavaScript, and SQL.",
+              "Intermediate grasp of core CS concepts: DSA, Databases, OS, and Version Control.",
+            ].map((b) => (
+              <li key={b} className="flex items-start gap-3 leading-relaxed">
+                <span className="mt-2 size-1.5 rounded-full bg-primary shrink-0" />
+                <span>{b}</span>
+              </li>
+            ))}
+          </ul>
         </div>
         <div className="p-6 rounded-2xl border border-border bg-card space-y-3">
           <div className="flex items-center gap-3 text-sm">
