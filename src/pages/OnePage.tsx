@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, MapPin, Mail, Github, ExternalLink } from "lucide-react";
+import {
+  ArrowUpRight, MapPin, Mail, Github, ExternalLink,
+  Home as HomeIcon, User, GraduationCap, Briefcase, FolderGit2, Wrench, MessageSquare,
+} from "lucide-react";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import Particles from "@/components/Particles";
 import { cn } from "@/lib/utils";
@@ -16,16 +19,24 @@ import {
 
 const EMAIL = "sbalghari@proton.me";
 
-/* Catppuccin accent palette for tags */
+/* Catppuccin accent palette for tags — darker text in light (Latte), softer in dark (Mocha) */
 const TAG_COLORS = [
-  "bg-[hsl(267_84%_81%/0.18)] text-[hsl(267_84%_60%)] border-[hsl(267_84%_60%/0.4)] dark:text-[hsl(267_84%_81%)] dark:border-[hsl(267_84%_81%/0.4)]", // mauve
-  "bg-[hsl(189_71%_73%/0.18)] text-[hsl(197_97%_40%)] border-[hsl(197_97%_46%/0.4)] dark:text-[hsl(189_71%_73%)] dark:border-[hsl(189_71%_73%/0.4)]", // sky
-  "bg-[hsl(115_54%_76%/0.18)] text-[hsl(109_58%_40%)] border-[hsl(109_58%_40%/0.4)] dark:text-[hsl(115_54%_76%)] dark:border-[hsl(115_54%_76%/0.4)]", // green
-  "bg-[hsl(316_72%_86%/0.2)] text-[hsl(316_72%_50%)] border-[hsl(316_72%_50%/0.4)] dark:text-[hsl(316_72%_86%)] dark:border-[hsl(316_72%_86%/0.4)]", // pink
-  "bg-[hsl(41_86%_83%/0.22)] text-[hsl(35_77%_45%)] border-[hsl(35_77%_45%/0.4)] dark:text-[hsl(41_86%_83%)] dark:border-[hsl(41_86%_83%/0.4)]", // yellow
-  "bg-[hsl(23_92%_75%/0.2)] text-[hsl(22_99%_52%)] border-[hsl(22_99%_52%/0.4)] dark:text-[hsl(23_92%_75%)] dark:border-[hsl(23_92%_75%/0.4)]", // peach
-  "bg-[hsl(170_57%_73%/0.2)] text-[hsl(183_74%_35%)] border-[hsl(183_74%_35%/0.4)] dark:text-[hsl(170_57%_73%)] dark:border-[hsl(170_57%_73%/0.4)]", // teal
-  "bg-[hsl(217_92%_76%/0.2)] text-[hsl(220_91%_54%)] border-[hsl(220_91%_54%/0.4)] dark:text-[hsl(217_92%_76%)] dark:border-[hsl(217_92%_76%/0.4)]", // blue
+  // mauve
+  "bg-[hsl(266_85%_58%/0.12)] text-[hsl(266_85%_42%)] border-[hsl(266_85%_58%/0.45)] dark:bg-[hsl(267_84%_81%/0.15)] dark:text-[hsl(267_84%_81%)] dark:border-[hsl(267_84%_81%/0.4)]",
+  // sky / sapphire
+  "bg-[hsl(197_97%_46%/0.12)] text-[hsl(197_97%_32%)] border-[hsl(197_97%_46%/0.45)] dark:bg-[hsl(189_71%_73%/0.15)] dark:text-[hsl(189_71%_73%)] dark:border-[hsl(189_71%_73%/0.4)]",
+  // green
+  "bg-[hsl(109_58%_40%/0.12)] text-[hsl(109_58%_28%)] border-[hsl(109_58%_40%/0.45)] dark:bg-[hsl(115_54%_76%/0.15)] dark:text-[hsl(115_54%_76%)] dark:border-[hsl(115_54%_76%/0.4)]",
+  // pink
+  "bg-[hsl(316_72%_50%/0.12)] text-[hsl(316_72%_38%)] border-[hsl(316_72%_50%/0.45)] dark:bg-[hsl(316_72%_86%/0.15)] dark:text-[hsl(316_72%_86%)] dark:border-[hsl(316_72%_86%/0.4)]",
+  // yellow
+  "bg-[hsl(35_77%_45%/0.14)] text-[hsl(35_77%_32%)] border-[hsl(35_77%_45%/0.45)] dark:bg-[hsl(41_86%_83%/0.15)] dark:text-[hsl(41_86%_83%)] dark:border-[hsl(41_86%_83%/0.4)]",
+  // peach
+  "bg-[hsl(22_99%_52%/0.12)] text-[hsl(22_99%_38%)] border-[hsl(22_99%_52%/0.45)] dark:bg-[hsl(23_92%_75%/0.15)] dark:text-[hsl(23_92%_75%)] dark:border-[hsl(23_92%_75%/0.4)]",
+  // teal
+  "bg-[hsl(183_74%_35%/0.12)] text-[hsl(183_74%_25%)] border-[hsl(183_74%_35%/0.45)] dark:bg-[hsl(170_57%_73%/0.15)] dark:text-[hsl(170_57%_73%)] dark:border-[hsl(170_57%_73%/0.4)]",
+  // blue
+  "bg-[hsl(220_91%_54%/0.12)] text-[hsl(220_91%_40%)] border-[hsl(220_91%_54%/0.45)] dark:bg-[hsl(217_92%_76%/0.15)] dark:text-[hsl(217_92%_76%)] dark:border-[hsl(217_92%_76%/0.4)]",
 ];
 const hashIdx = (s: string) => {
   let h = 0;
@@ -33,9 +44,20 @@ const hashIdx = (s: string) => {
   return h % TAG_COLORS.length;
 };
 
-/* ------------------------------- Dock Nav -------------------------------- */
+/* ----------------------------- Side Dock ----------------------------- */
+const NAV_ICONS: Record<string, typeof HomeIcon> = {
+  home: HomeIcon,
+  about: User,
+  education: GraduationCap,
+  experience: Briefcase,
+  projects: FolderGit2,
+  skills: Wrench,
+  contact: MessageSquare,
+};
+
 function Dock() {
   const [active, setActive] = useState("home");
+  const [hovered, setHovered] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => {
@@ -57,40 +79,83 @@ function Dock() {
 
   return (
     <motion.div
-      initial={{ y: 80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
+      initial={{ x: -80, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.2 }}
-      className="fixed bottom-4 inset-x-0 z-50 flex justify-center px-4 pointer-events-none"
+      className="fixed left-4 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-start gap-1.5 p-2 rounded-2xl bg-card/70 backdrop-blur-xl border border-border shadow-2xl shadow-primary/10"
     >
-      <div className="pointer-events-auto flex items-center gap-1 px-2 py-2 rounded-2xl bg-card/70 backdrop-blur-xl border border-border shadow-2xl shadow-primary/10">
-        {navSections.map((s) => {
-          const isActive = active === s.id;
-          return (
-            <button
-              key={s.id}
-              onClick={() => go(s.id)}
-              className={cn(
-                "relative px-3 py-2 rounded-xl text-xs md:text-sm font-medium transition-all",
-                isActive
-                  ? "text-primary-foreground"
-                  : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
-              )}
+      {navSections.map((s) => {
+        const isActive = active === s.id;
+        const isHover = hovered === s.id;
+        const expanded = isActive || isHover;
+        const Icon = NAV_ICONS[s.id] ?? HomeIcon;
+        return (
+          <motion.button
+            key={s.id}
+            onClick={() => go(s.id)}
+            onMouseEnter={() => setHovered(s.id)}
+            onMouseLeave={() => setHovered(null)}
+            layout
+            transition={{ type: "spring", stiffness: 380, damping: 28 }}
+            className={cn(
+              "relative flex items-center gap-2 h-11 rounded-xl overflow-hidden transition-colors",
+              expanded ? "px-3" : "px-2.5",
+              isActive
+                ? "bg-primary text-primary-foreground shadow-lg shadow-primary/30"
+                : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
+            )}
+          >
+            <motion.span
+              animate={{ scale: isActive ? 1.18 : isHover ? 1.08 : 1 }}
+              transition={{ type: "spring", stiffness: 400, damping: 20 }}
+              className="grid place-items-center shrink-0"
             >
-              {isActive && (
+              <Icon className="size-[18px]" />
+            </motion.span>
+            <AnimatePresence initial={false}>
+              {expanded && (
                 <motion.span
-                  layoutId="dock-active"
-                  className="absolute inset-0 rounded-xl bg-primary"
-                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                />
+                  key="label"
+                  initial={{ width: 0, opacity: 0 }}
+                  animate={{ width: "auto", opacity: 1 }}
+                  exit={{ width: 0, opacity: 0 }}
+                  transition={{ duration: 0.22, ease: "easeOut" }}
+                  className="text-xs font-medium whitespace-nowrap overflow-hidden"
+                >
+                  {s.label}
+                </motion.span>
               )}
-              <span className="relative">{s.label}</span>
-            </button>
-          );
-        })}
-        <div className="w-px h-6 bg-border mx-1" />
-        <div className="px-1"><ThemeToggle /></div>
-      </div>
+            </AnimatePresence>
+          </motion.button>
+        );
+      })}
+      <div className="h-px w-full bg-border my-1" />
+      <div className="self-center"><ThemeToggle /></div>
     </motion.div>
+  );
+}
+
+/* ------------------------- Mobile top nav (sm) ----------------------- */
+function MobileNav() {
+  const go = (id: string) =>
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  return (
+    <div className="md:hidden fixed top-3 inset-x-3 z-50 flex items-center gap-1 px-2 py-2 rounded-2xl bg-card/80 backdrop-blur-xl border border-border overflow-x-auto">
+      {navSections.map((s) => {
+        const Icon = NAV_ICONS[s.id] ?? HomeIcon;
+        return (
+          <button
+            key={s.id}
+            onClick={() => go(s.id)}
+            className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-secondary/60"
+            aria-label={s.label}
+          >
+            <Icon className="size-4" />
+          </button>
+        );
+      })}
+      <div className="ml-auto"><ThemeToggle /></div>
+    </div>
   );
 }
 
@@ -137,7 +202,7 @@ function Hero() {
           <p className="font-display text-sm text-accent mb-4">// hello world</p>
           <h1 className="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.05]">
             I'm{" "}
-            <span className="bg-gradient-to-r from-primary via-accent to-[hsl(316_72%_60%)] dark:to-[hsl(316_72%_86%)] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary via-accent to-[hsl(316_72%_50%)] dark:to-[hsl(316_72%_86%)] bg-clip-text text-transparent">
               {About.name}
             </span>
             ,
@@ -214,7 +279,7 @@ function AboutSection() {
         </div>
         <div className="p-6 rounded-2xl border border-border bg-card space-y-3">
           <div className="flex items-center gap-3 text-sm">
-            <MapPin className="size-4 text-[hsl(22_99%_52%)] dark:text-[hsl(23_92%_75%)]" />
+            <MapPin className="size-4 text-[hsl(22_99%_42%)] dark:text-[hsl(23_92%_75%)]" />
             <span>Skardu, GB, Pakistan</span>
           </div>
           <a href={`mailto:${EMAIL}`} className="flex items-center gap-3 text-sm hover:text-primary transition-colors">
@@ -238,6 +303,47 @@ function AboutSection() {
         </div>
       </div>
     </Section>
+  );
+}
+
+/* ---------------------------- Timeline ------------------------------ */
+function Timeline({
+  items,
+}: {
+  items: { title: string; subtitle: string; meta: string; body: string }[];
+}) {
+  return (
+    <div className="relative pl-8 md:pl-10">
+      {/* vertical line */}
+      <div className="absolute left-2.5 md:left-3 top-2 bottom-2 w-px bg-gradient-to-b from-primary/60 via-accent/40 to-transparent" />
+      <div className="space-y-6">
+        {items.map((it, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, x: -16 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: idx * 0.08 }}
+            className="relative"
+          >
+            {/* dot */}
+            <span className="absolute -left-[26px] md:-left-[30px] top-5 grid place-items-center">
+              <span className="size-3 rounded-full bg-primary ring-4 ring-primary/20" />
+            </span>
+            <div className="p-6 rounded-2xl border border-border bg-card hover:border-primary/50 transition-colors">
+              <div className="flex flex-wrap items-baseline justify-between gap-2 mb-2">
+                <h3 className="text-lg font-medium">{it.title}</h3>
+                <span className="font-display text-xs px-2 py-1 rounded-md bg-accent/15 text-accent border border-accent/30">
+                  {it.meta}
+                </span>
+              </div>
+              <p className="text-sm text-primary mb-2">{it.subtitle}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">{it.body}</p>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -354,10 +460,10 @@ function Projects() {
 
 /* ------------------------------ Skills ------------------------------ */
 const CAT_ACCENTS = [
-  "text-[hsl(267_84%_60%)] dark:text-[hsl(267_84%_81%)]",
-  "text-[hsl(197_97%_46%)] dark:text-[hsl(189_71%_73%)]",
-  "text-[hsl(109_58%_40%)] dark:text-[hsl(115_54%_76%)]",
-  "text-[hsl(22_99%_52%)] dark:text-[hsl(23_92%_75%)]",
+  "text-[hsl(266_85%_42%)] dark:text-[hsl(267_84%_81%)]",
+  "text-[hsl(197_97%_32%)] dark:text-[hsl(189_71%_73%)]",
+  "text-[hsl(109_58%_28%)] dark:text-[hsl(115_54%_76%)]",
+  "text-[hsl(22_99%_38%)] dark:text-[hsl(23_92%_75%)]",
 ];
 function Skills() {
   return (
@@ -431,11 +537,12 @@ export default function OnePage() {
     <div className="relative min-h-screen bg-background text-foreground overflow-x-hidden">
       <Particles />
       <Dock />
-      <main className="pb-24">
+      <MobileNav />
+      <main className="pb-24 md:pl-20">
         <Hero />
         <AboutSection />
         <Section id="education" eyebrow="// education" title="Where I'm learning">
-          <CardList
+          <Timeline
             items={educationData.map((e) => ({
               title: e.name,
               subtitle: e.institution,
@@ -458,7 +565,7 @@ export default function OnePage() {
         <Skills />
         <Contact />
       </main>
-      <footer className="border-t border-border py-8 px-6 text-center text-sm text-muted-foreground">
+      <footer className="border-t border-border py-8 px-6 text-center text-sm text-muted-foreground md:pl-20">
         © {new Date().getFullYear()} {About.name} ·{" "}
         <a href={`mailto:${EMAIL}`} className="hover:text-primary transition-colors">{EMAIL}</a>
       </footer>
