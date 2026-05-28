@@ -536,7 +536,7 @@ export default function OnePage() {
         <Hero />
         <AboutSection />
         <Section id="education" eyebrow="// education" title="Where I'm learning">
-          <Timeline
+          <CardList
             items={educationData.map((e) => ({
               title: e.name,
               subtitle: e.institution,
