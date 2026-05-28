@@ -122,8 +122,13 @@ function Dock() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -6 }}
                   transition={{ duration: 0.18, ease: "easeOut" }}
-                  className="pointer-events-none absolute left-full ml-3 px-2.5 py-1 rounded-md bg-card border border-border text-xs font-medium text-foreground whitespace-nowrap shadow-lg"
+                  className="pointer-events-none absolute left-full ml-2 px-2.5 py-1 rounded-md bg-card border border-border text-xs font-medium text-foreground whitespace-nowrap shadow-lg"
                 >
+                  {/* pointy arrow connecting to icon */}
+                  <span
+                    aria-hidden
+                    className="absolute right-full top-1/2 -translate-y-1/2 size-2 rotate-45 bg-card border-l border-b border-border -mr-1"
+                  />
                   {s.label}
                 </motion.span>
               )}
