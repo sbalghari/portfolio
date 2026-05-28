@@ -234,20 +234,6 @@ function Hero() {
             >
               <Mail className="size-4" /> Get in Touch
             </a>
-            <div className="flex items-center gap-3 ml-2">
-              {socialLinks.map(({ icon: Icon, link, label }) => (
-                <a
-                  key={label}
-                  href={link}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  aria-label={label}
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <Icon className="size-5" />
-                </a>
-              ))}
-            </div>
           </div>
         </motion.div>
 
