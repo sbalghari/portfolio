@@ -13,7 +13,7 @@ export default function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="scroll-mt-20 py-24 px-6">
+    <section id={id} className="scroll-mt-0 md:scroll-mt-10 lg:scroll-mt-20 py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

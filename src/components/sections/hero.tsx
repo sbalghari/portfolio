@@ -13,7 +13,7 @@ export default function Hero() {
   }, [titles.length]);
 
   return (
-    <section id="home" className="min-h-screen flex items-center px-6 pt-24">
+    <section id="home" className="min-h-screen flex items-center px-6 pt-24 pb-28">
       <div className="max-w-6xl mx-auto grid md:grid-cols-[1.4fr_1fr] gap-12 items-center w-full">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
