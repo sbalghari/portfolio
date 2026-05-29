@@ -53,7 +53,7 @@ export const About = {
     "Self-taught programmer through online resources and projects.",
     "Strong interest in Linux, system internals, and desktop customization.",
     "Proficient in Python; Confortable with C++, JS, and SQL.",
-    "Building projects like SBDots (System enviroment setup) and Treeva (codebase analysis tool).",
+    "Building projects like SBDots (linux desktop setup) and Treeva (codebase analysis tool).",
     "Comfortable with DSA, OS, databases, and version control fundamentals.",
   ],
   picture: ProfilePic,
