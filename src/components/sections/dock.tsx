@@ -10,6 +10,13 @@ import { NAV_ICONS } from "@/lib/constants";
 export default function Dock() {
   const [active, setActive] = useState("home");
   const [hovered, setHovered] = useState<string | null>(null);
+  const [showActiveLabel, setShowActiveLabel] = useState(true);
+
+  useEffect(() => {
+    setShowActiveLabel(true);
+    const t = setTimeout(() => setShowActiveLabel(false), 1000);
+    return () => clearTimeout(t);
+  }, [active]);
 
   useEffect(() => {
     const onScroll = () => {
