@@ -36,7 +36,7 @@ const screenshot3 = "screenshots/serp.png";
 const screenshot4 = "screenshots/libmngr.png";
 
 // Profile Picture
-const ProfilePic = "/me.png";
+const ProfilePic = "me.png";
 
 // About ----------------------------------------------------------------
 export const About = {
