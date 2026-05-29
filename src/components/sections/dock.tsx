@@ -56,7 +56,7 @@ export default function Dock() {
       {navSections.map((s) => {
         const isActive = active === s.id;
         const isHover = hovered === s.id;
-        const expanded = isActive || isHover;
+        const expanded = (isActive && showActiveLabel) || isHover;
         const Icon = NAV_ICONS[s.id] ?? HomeIcon;
         return (
           <button
