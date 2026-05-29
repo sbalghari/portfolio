@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Mail } from "lucide-react";
 import { About } from "@/data/portfolio";
 
-function Hero() {
+export default function Hero() {
   const titles = Object.values(About.titles);
   const [i, setI] = useState(0);
   useEffect(() => {
@@ -24,20 +24,26 @@ function Hero() {
           <div className="relative">
             <div className="absolute -inset-6 rounded-full bg-gradient-to-tr from-primary/30 via-accent/30 to-[hsl(316_72%_86%/0.3)] blur-3xl animate-pulse" />
             <div className="relative size-64 md:size-80 rounded-full border-2 border-primary/40 overflow-hidden bg-secondary grid place-items-center">
-              <img src={About.picture} alt={About.name} className="size-full object-cover opacity-70" />
+              <img
+                src={About.picture}
+                alt={About.name}
+                className="size-full object-cover opacity-70"
+              />
             </div>
           </div>
         </motion.div>
-        
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <p className="font-display text-sm text-accent mb-4">// hello world</p>
+          <p className="font-display text-sm text-accent mb-4">
+            // hello world
+          </p>
           <h1 className="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.05]">
             I'm{" "}
-            <span className="bg-gradient-to-r from-primary via-accent to-[hsl(316_72%_50%)] dark:to-[hsl(316_72%_86%)] bg-clip-text text-transparent">
+            <span className="lg:whitespace-nowrap bg-gradient-to-r from-primary via-accent to-[hsl(316_72%_50%)] dark:to-[hsl(316_72%_86%)] bg-clip-text text-transparent">
               {About.name}
             </span>
             ,
@@ -50,7 +56,7 @@ function Hero() {
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: -30, opacity: 0 }}
                 transition={{ duration: 0.45 }}
-                className="text-2xl md:text-3xl font-light text-accent absolute"
+                className="text-xl sm:text-2xl md:text-3xl font-light text-accent absolute"
               >
                 {titles[i]}
               </motion.p>
@@ -58,7 +64,11 @@ function Hero() {
           </div>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <button
-              onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() =>
+                document
+                  .getElementById("projects")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
               className="px-5 py-2.5 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition shadow-lg shadow-primary/30"
             >
               View My Work
@@ -75,4 +85,3 @@ function Hero() {
     </section>
   );
 }
-export default Hero;

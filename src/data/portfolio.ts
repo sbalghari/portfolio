@@ -104,7 +104,7 @@ export const experienceData = [
     year: "2024 - Now",
     position: "Contributor & Builder",
     description:
-      "Building personal projects, experimenting with ideas, and contributing to open source whenever something breaks badly enough to annoy me and its simple enough for me.",
+      "Building personal projects, experimenting with ideas, and contributing to open source whenever something breaks badly enough to annoy me and is simple enough for me to fix :).",
   },
   {
     company: "Self Employed",

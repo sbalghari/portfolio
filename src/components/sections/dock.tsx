@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { navSections } from "@/data/portfolio";
 import { NAV_ICONS } from "@/lib/constants";
 
-function Dock() {
+export default function Dock() {
   const [active, setActive] = useState("home");
   const [hovered, setHovered] = useState<string | null>(null);
 
@@ -104,4 +104,3 @@ function Dock() {
     </motion.div>
   );
 }
-export default Dock;

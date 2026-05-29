@@ -10,7 +10,8 @@ import { TAG_COLORS } from "@/lib/constants";
 import { hashIdx } from "@/lib/utils";
 
 const FILTERS = ["All", "Developer Tools", "Linux", "Others"];
-function Projects() {
+
+export default function Projects() {
   const [filter, setFilter] = useState("All");
   const shown =
     filter === "All"
@@ -94,4 +95,3 @@ function Projects() {
     </Section>
   );
 }
-export default Projects;

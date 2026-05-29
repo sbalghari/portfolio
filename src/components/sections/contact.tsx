@@ -6,7 +6,7 @@ import { TAG_COLORS } from "@/lib/constants";
 import { hashIdx } from "@/lib/utils";
 import Section from "../shared/base";
 
-function Contact() {
+export default function Contact() {
   return (
     <Section
       id="contact"
@@ -20,7 +20,7 @@ function Contact() {
         </p>
         <a
           href={`mailto:${About.email}`}
-          className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-primary text-primary-foreground font-medium shadow-lg shadow-primary/30 hover:opacity-90 transition mb-6"
+          className="inline-flex items-center gap-2 px-5 py-3 mb-12 mt-4 rounded-lg bg-primary text-primary-foreground font-medium shadow-lg shadow-primary/30 hover:opacity-90 transition mb-6"
         >
           <Mail className="size-4" />
           {About.email}
@@ -47,4 +47,3 @@ function Contact() {
     </Section>
   );
 }
-export default Contact;

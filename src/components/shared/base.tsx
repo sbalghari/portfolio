@@ -1,7 +1,7 @@
 /* ------------------------- Base section function ----------------------- */
 import { motion } from "framer-motion";
 
-function Section({
+export default function Section({
   id,
   eyebrow,
   title,
@@ -32,5 +32,3 @@ function Section({
     </section>
   );
 }
-
-export default Section;

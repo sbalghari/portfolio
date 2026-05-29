@@ -4,7 +4,7 @@ import { About, socialLinks } from "@/data/portfolio";
 
 import Section from "../shared/base";
 
-function AboutSection() {
+export default function AboutSection() {
   return (
     <Section id="about" eyebrow="// whoami" title="A bit about me">
       <div className="grid md:grid-cols-3 gap-6">
@@ -49,4 +49,3 @@ function AboutSection() {
     </Section>
   );
 }
-export default AboutSection;

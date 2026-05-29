@@ -6,7 +6,7 @@ import Section from "../shared/base";
 import { TAG_COLORS, CAT_ACCENTS } from "@/lib/constants";
 import { hashIdx } from "@/lib/utils";
 
-function Skills() {
+export default function Skills() {
   return (
     <Section id="skills" eyebrow="// skills" title="My toolbox">
       <div className="grid md:grid-cols-2 gap-6">
@@ -43,4 +43,3 @@ function Skills() {
     </Section>
   );
 }
-export default Skills;

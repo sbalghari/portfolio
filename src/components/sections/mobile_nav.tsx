@@ -5,7 +5,7 @@ import { navSections } from "@/data/portfolio";
 
 import { NAV_ICONS } from "@/lib/constants";
 
-function MobileNav() {
+export default function MobileNav() {
   const go = (id: string) =>
     document
       .getElementById(id)
@@ -31,4 +31,3 @@ function MobileNav() {
     </div>
   );
 }
-export default MobileNav;
